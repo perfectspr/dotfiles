@@ -1,0 +1,16 @@
+{
+  "python.jediEnabled": true,
+  "suggest.noselect": false,
+  "eslint.autoFixOnSave": true,
+  "diagnostic.errorSign": "🔺",
+  "python.formatting.provider": "black",
+  "explorer.icon.enableNerdfont": true,
+  "explorer.previewAction.onHover": false,
+  "diagnostic.warningSign": "🔸",
+  "eslint.quiet": true,
+  "coc.preferences.formatOnType": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "*"
+  ],
+  "suggest.maxCompleteItemCount": 15
+}
