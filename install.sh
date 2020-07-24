@@ -38,5 +38,7 @@ ln -s $PWD/vimrc" $HOME/.vimrc
 ln -s $PWD/coc-settings.json" $HOME/.vim/coc-settings.json
 ln -s $PWD/.translate-shell" $HOME/.translate-shell
 
+# coc plugins
+# coc-explorer coc-eslint coc-python coc-git  coc-html coc-vetur coc-yaml coc-xml coc-json coc-tabnine coc-snippets  coc-tsserver coc-css
 ehco Done
 
