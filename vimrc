@@ -12,7 +12,6 @@ map <Leader>bd :bd<cr>
 " toggles between the current and most recently used buffers
 map <Leader>bb :b#<cr>
 
-set mouse=a
 " reload
 set autoread
 
@@ -226,6 +225,8 @@ nmap <silent> gi <Plug>(coc-git-chunkinfo)
 "================================
 " Vimspector
 let g:vimspector_enable_mappings = 'HUMAN'
+let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-node-debug2', '' ]
+" create .vimspector.json 
 " F5	When debugging, continue. Otherwise start debugging.	vimspector#Continue()
 " F3	Stop debugging.	vimspector#Stop()
 " F4	Restart debugging with the same configuration.	vimspector#Restart()
