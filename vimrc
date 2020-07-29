@@ -1,5 +1,5 @@
 "=================================
-" Leader
+" Leaden
 let mapleader = "\<Space>"
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
@@ -20,6 +20,8 @@ set hidden
 set noswapfile
 set nobackup
 set nowb
+
+set pastetoggle=<F2>
 
 " Indent
 set autoindent

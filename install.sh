@@ -11,7 +11,7 @@ brew update
 brew tap homebrew/cask-fonts
 # Install other packages
 brew install node nvm yarn pyenv autojump tmux reattach-to-user-namespace fzf ripgrep fd zsh aira2  translate-shell vim ripgrep httpie 
-brew cask install postman iterm2 docker amethyst font-hack-nerd-font
+brew cask install postman docker amethyst font-hack-nerd-font
 
 # Install  oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
