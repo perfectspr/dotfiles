@@ -4,8 +4,6 @@
   "eslint.autoFixOnSave": true,
   "diagnostic.errorSign": "🔺",
   "python.formatting.provider": "black",
-  "explorer.icon.enableNerdfont": true,
-  "explorer.previewAction.onHover": false,
   "diagnostic.warningSign": "🔸",
   "eslint.quiet": true,
   "coc.preferences.formatOnType": true,

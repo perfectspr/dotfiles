@@ -62,7 +62,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
 
 " GUI
-"Plug 'scrooloose/nerdtree'
 Plug 't9md/vim-choosewin' " invoke with '-'
 Plug 'perfectspr/dracula-vim', { 'as': 'dracula' }
 Plug 'joshdick/onedark.vim'
@@ -70,6 +69,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'benmills/vimux'
 Plug 'rbgrouleff/bclose.vim'
+Plug 'preservim/nerdtree'
 
 " Editor
 Plug 'sgur/vim-editorconfig'
@@ -103,7 +103,9 @@ call plug#end()
  map <Leader>vp :VimuxPromptCommand<CR>
 "=================================
 " NERDTree Settings
-nmap <C-n> :CocCommand explorer<CR>
+map <C-n> :NERDTreeToggle<CR>
+nmap <Leader>n :NERDTreeFind<cr>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 "=================================
 " open browser Settings
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
