@@ -12,6 +12,15 @@ map <Leader>bd :bd<cr>
 " toggles between the current and most recently used buffers
 map <Leader>bb :b#<cr>
 
+" fix polyglot plugin issue
+" - it will set js filetype to jasmine.javascript
+" - it cannot recognize vtl file
+"au BufRead,BufNewFile *.js setfiletype javscript
+au BufNewFile,BufRead *.vm,*.vtl set ft=velocity
+let g:polyglot_disabled = ['yaml']
+
+
+
 " reload
 set autoread
 
@@ -107,6 +116,7 @@ call plug#end()
 " NERDTree Settings
 map <C-n> :NERDTreeToggle<CR>
 nmap <Leader>n :NERDTreeFind<cr>
+let NERDTreeShowHidden=1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 "=================================
 " open browser Settings
@@ -125,6 +135,7 @@ let g:javascript_plugin_ngdoc = 1
 
 "=================================
 " Vim Test Settings
+let test#python#runner = 'pytest'
 let test#strategy = 'vimux'
 let test#javascript#mocha#options = '--exit --timeout 20000'
 nmap <silent> tn :TestNearest<CR>
@@ -249,12 +260,4 @@ nmap <Leader>mp :MarkdownPreview<cr>
 au BufNewFile,BufRead *.vm,*.vtl set ft=velocity
 syntax on
 colorscheme dracula
-
-" fix polyglot plugin issue
-" - it will set js filetype to jasmine.javascript
-" - it cannot recognize vtl file
-au BufRead,BufNewFile *.js setfiletype javscript
-au BufNewFile,BufRead *.vm,*.vtl set ft=velocity
-let g:polyglot_disabled = ['yaml']
-
 

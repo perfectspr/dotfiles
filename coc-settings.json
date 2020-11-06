@@ -1,12 +1,10 @@
 {
   "python.jediEnabled": true,
   "suggest.noselect": false,
+  "python.formatting.provider": "autopep8",
   "eslint.autoFixOnSave": true,
-  "diagnostic.errorSign": "🔺",
-  "python.formatting.provider": "black",
-  "diagnostic.warningSign": "🔸",
   "eslint.quiet": true,
-  "coc.preferences.formatOnType": true,
+  "coc.preferences.formatOnType": false,
   "coc.preferences.formatOnSaveFiletypes": [
     "*"
   ],
