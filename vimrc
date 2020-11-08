@@ -19,8 +19,6 @@ map <Leader>bb :b#<cr>
 au BufNewFile,BufRead *.vm,*.vtl set ft=velocity
 let g:polyglot_disabled = ['yaml']
 
-
-
 " reload
 set autoread
 
@@ -71,6 +69,7 @@ call plug#begin('~/.vim/plugged')
 
 " Git
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 " GUI
 Plug 't9md/vim-choosewin' " invoke with '-'
@@ -81,9 +80,11 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'benmills/vimux'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Editor
 Plug 'sgur/vim-editorconfig'
+Plug 'jiangmiao/auto-pairs'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdcommenter' " [count]<leader>cc [count]<leader>c<space>
 
@@ -146,7 +147,7 @@ nmap <silent> tg :TestVisit<CR>
 
 "=================================
 " FZF Settings
-let $FZF_DEFAULT_COMMAND = "fd --type f"
+let $FZF_DEFAULT_COMMAND = "fd --type f -H -E .git"
 let g:fzf_layout = { 'down': '~20%' }
 nmap <C-p> :FZF<CR>
 nmap <C-m> :Rg<Space>
@@ -162,6 +163,8 @@ highlight clear SignColumn
 " Use `[c` and `]c` to navigate diagnostics
 nmap <silent> <C-k> <Plug>(coc-diagnostic-prev)
 nmap <silent> <C-j> <Plug>(coc-diagnostic-next)
+
+let g:coc_global_extensions = ['coc-css', 'coc-eslint', 'coc-graphql', 'coc-json', 'coc-pyright', 'coc-python', 'coc-snippets', 'coc-sh', 'coc-tabnine', 'coc-tsserver', 'coc-vetur', 'coc-xml', 'coc-yaml']
 
 " Refactor
 nmap <Leader>rn <Plug>(coc-rename)
