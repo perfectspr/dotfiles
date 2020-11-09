@@ -4,6 +4,14 @@
   "python.formatting.provider": "autopep8",
   "eslint.autoFixOnSave": true,
   "eslint.quiet": true,
+  "eslint.filetypes": [
+    "javascript",
+    "javascriptreact",
+    "javascriptvue",
+    "typescript",
+    "typescriptreact",
+    "vue"
+  ],
   "coc.preferences.formatOnType": false,
   "coc.preferences.formatOnSaveFiletypes": [
     "*"
