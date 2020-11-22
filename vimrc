@@ -97,6 +97,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'heavenshell/vim-jsdoc' "C-l in function line
 Plug 'diepm/vim-rest-console'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }
+Plug 'aserebryakov/vim-todo-lists'
 
 " Testing
 Plug 'janko/vim-test'
@@ -164,7 +165,7 @@ highlight clear SignColumn
 nmap <silent> <C-k> <Plug>(coc-diagnostic-prev)
 nmap <silent> <C-j> <Plug>(coc-diagnostic-next)
 
-let g:coc_global_extensions = ['coc-css', 'coc-eslint', 'coc-graphql', 'coc-json', 'coc-pyright', 'coc-python', 'coc-snippets', 'coc-sh', 'coc-tabnine', 'coc-tsserver', 'coc-vetur', 'coc-xml', 'coc-yaml']
+let g:coc_global_extensions = ['coc-lists', 'coc-css', 'coc-eslint', 'coc-json', 'coc-pyright', 'coc-python', 'coc-snippets', 'coc-sh', 'coc-tabnine', 'coc-tsserver', 'coc-vetur', 'coc-xml', 'coc-yaml', 'coc-html']
 
 " Refactor
 nmap <Leader>rn <Plug>(coc-rename)
@@ -264,3 +265,8 @@ au BufNewFile,BufRead *.vm,*.vtl set ft=velocity
 syntax on
 colorscheme dracula
 
+"================================
+" totolist
+let g:VimTodoListsDatesEnabled = 1
+let g:VimTodoListsUndoneItem = ''
+let g:VimTodoListsDoneItem = ''
