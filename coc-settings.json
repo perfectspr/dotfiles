@@ -1,7 +1,7 @@
 {
   "python.jediEnabled": true,
   "suggest.noselect": false,
-  "python.formatting.provider": "autopep8",
+  "python.formatting.provider": "black",
   "eslint.autoFixOnSave": true,
   "eslint.quiet": true,
   "eslint.filetypes": [
