@@ -165,7 +165,7 @@ highlight clear SignColumn
 nmap <silent> <C-k> <Plug>(coc-diagnostic-prev)
 nmap <silent> <C-j> <Plug>(coc-diagnostic-next)
 
-let g:coc_global_extensions = ['coc-lists', 'coc-css', 'coc-eslint', 'coc-json', 'coc-pyright', 'coc-python', 'coc-snippets', 'coc-sh', 'coc-tabnine', 'coc-tsserver', 'coc-vetur', 'coc-xml', 'coc-yaml', 'coc-html']
+let g:coc_global_extensions = ['coc-lists', 'coc-css', 'coc-eslint', 'coc-json', 'coc-pyright', 'coc-snippets', 'coc-sh', 'coc-tabnine', 'coc-tsserver', 'coc-vetur', 'coc-xml', 'coc-yaml', 'coc-html']
 
 " Refactor
 nmap <Leader>rn <Plug>(coc-rename)

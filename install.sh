@@ -42,3 +42,5 @@ ln -s $PWD/.translate-shell" $HOME/.translate-shell
 # coc-explorer coc-eslint coc-python coc-git  coc-html coc-vetur coc-yaml coc-xml coc-json coc-tabnine coc-snippets  coc-tsserver coc-css
 ehco Done
 
+
+sudo -E apt install fzf fd-find ripgrep
