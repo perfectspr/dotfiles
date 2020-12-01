@@ -148,7 +148,7 @@ nmap <silent> tg :TestVisit<CR>
 
 "=================================
 " FZF Settings
-let $FZF_DEFAULT_COMMAND = "fd --type f -H -E .git"
+let $FZF_DEFAULT_COMMAND = "fdfind --type f -H -E .git"
 let g:fzf_layout = { 'down': '~20%' }
 nmap <C-p> :FZF<CR>
 nmap <C-m> :Rg<Space>
