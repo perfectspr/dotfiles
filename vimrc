@@ -74,7 +74,6 @@ Plug 'airblade/vim-gitgutter'
 " GUI
 Plug 't9md/vim-choosewin' " invoke with '-'
 Plug 'perfectspr/dracula-vim', { 'as': 'dracula' }
-Plug 'joshdick/onedark.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'benmills/vimux'
@@ -86,16 +85,18 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'sgur/vim-editorconfig'
 Plug 'jiangmiao/auto-pairs'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'preservim/nerdcommenter' " [count]<leader>cc [count]<leader>c<space>
+" [count]<leader>cc [count]<leader>c<space>
+Plug 'preservim/nerdcommenter' 
+Plug 'honza/vim-snippets'
 
 " Search
-Plug 'junegunn/fzf', { 'do': './install --bin' }
-Plug 'junegunn/fzf.vim' " CTRL-X / CTRL-V key bindings to open in new split, or in a new vertical split
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" CTRL-X / CTRL-V key bindings to open in new split, or in a new vertical split
+Plug 'junegunn/fzf.vim' 
 
 " Filetype
 Plug 'sheerun/vim-polyglot'
-Plug 'heavenshell/vim-jsdoc' "C-l in function line
-Plug 'diepm/vim-rest-console'
+Plug 'kkoomen/vim-doge', { 'do': { -> doge#install()  }  }
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }
 Plug 'aserebryakov/vim-todo-lists'
 
@@ -151,7 +152,6 @@ nmap <silent> tg :TestVisit<CR>
 let $FZF_DEFAULT_COMMAND = "fdfind --type f -H -E .git"
 let g:fzf_layout = { 'down': '~20%' }
 nmap <C-p> :FZF<CR>
-nmap <C-m> :Rg<Space>
 
 "================================
 " coc Settings
@@ -270,3 +270,8 @@ colorscheme dracula
 let g:VimTodoListsDatesEnabled = 1
 let g:VimTodoListsUndoneItem = ''
 let g:VimTodoListsDoneItem = ''
+
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --glob "!.git" --hidden --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
