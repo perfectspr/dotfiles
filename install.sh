@@ -1,46 +1,76 @@
 !/usr/bin/sh
 
-# Install homebrew
+sudo apt-get update && sudo apt-get install -y --no-install-recommends \
+    sudo \
+    software-properties-common \
+    apt-transport-https \
+    ca-certificates \
+    build-essential \
+    apt-utils \
+    libssl-dev \
+    libbz2-dev \
+    libreadline-dev \
+    libsqlite3-dev \
+    libncurses5-dev \
+    libxml2-dev \
+    libxmlsec1-dev \
+    libffi-dev \
+    liblzma-dev \
+    llvm \
+    locales \
+    zlib1g-dev \
+    xz-utils \
+    tk-dev \
+    git \
+    zsh \
+    tmux \
+    ripgrep \
+    autojump \
+    httpie \
+    zip \
+    gpg-agent \
+    fd-find \
+    wget \
+    curl \
+    ssh \
+    unzip \
+    bzip2 \
+    && sudo apt-get autoremove -y \
+    && sudo apt-get clean -y \
+    && sudo rm -rf /var/lib/apt/lists/*
 
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-git -C "$(brew --repo)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
-git -C "$(brew --repo homebrew/core)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
-git -C "$(brew --repo homebrew/cask)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask.git
-export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
-brew update
-brew tap homebrew/cask-fonts
-# Install other packages
-brew install node nvm yarn pyenv autojump tmux reattach-to-user-namespace fzf ripgrep fd zsh aira2  translate-shell vim ripgrep httpie 
-brew cask install postman docker amethyst font-hack-nerd-font
+echo "install pyenv"
+export PYENV_ROOT=$HOME/.pyenv
+export PATH=$HOME/.local/bin:$PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH
+curl https://pyenv.run | bash  \
+    && pyenv install 3.7.9 \
+    && pyenv global 3.7.9
 
-# Install  oh-my-zsh
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+echo "install nvm"
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 
-# install vim-plug 
+echo "install oh-my-zsh"
+wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true 
+
+echo "install vim"
+sudo add-apt-repository ppa:jonathonf/vim \
+    && sudo apt-get install -y vim
+
+echo "install fzf"
+git clone --depth 1 https://github.com/junegunn/fzf.git .fzf \
+    && .fzf/install --bin
+
+echo "install vim-plug"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# Link Config files
-if [ ! -d $HOME/.pip  ];then
-	mkdir $HOME/.pip
-  else
-	  echo dir exist
-fi
+#brew tap homebrew/cask-fonts
+# Install other packages
+#brew install node nvm yarn pyenv autojump tmux reattach-to-user-namespace fzf ripgrep fd zsh aira2  translate-shell vim ripgrep httpie 
+#brew cask install postman docker amethyst font-hack-nerd-font
 
-# install JDK
-brew cask install java11
-
-# install language server
-ln -s $PWD/pip/pip.conf" $HOME/.pip/pip.conf
-ln -s $PWD/.nmprc $HOME/.npmrc
+rm $HOME/.zshrc
 ln -s $PWD/.tmux.conf $HOME/.tmux.conf
-ln -s $PWD/vimrc" $HOME/.vimrc
+ln -s $PWD/.vimrc" $HOME/.vimrc
+ln -s $PWD/.zshrc" $HOME/.zshrc
 ln -s $PWD/coc-settings.json" $HOME/.vim/coc-settings.json
-ln -s $PWD/.translate-shell" $HOME/.translate-shell
-
-# coc plugins
-# coc-explorer coc-eslint coc-python coc-git  coc-html coc-vetur coc-yaml coc-xml coc-json coc-tabnine coc-snippets  coc-tsserver coc-css
-ehco Done
-
-
-sudo -E apt install fzf fd-find ripgrep
