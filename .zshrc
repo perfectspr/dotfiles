@@ -7,23 +7,25 @@ export EDITOR=vim
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-alias rg="rg --hidden --glob '!.git'"
-
 ZSH_THEME="robbyrussell"
+
+export ZSH="$HOME/.oh-my-zsh"
 plugins=(
     git
-    tmux
-    docker
     pyenv
-    fzf
-    fd
-    gitignore
-    npm
     nvm
-    pip
+    tmux
+    fzf
     shrink-path
     autojump
   )
+
+alias rg="rg --hidden --glob '!.git'"
+alias venv="python -m venv .venv"
+alias act=". .venv/bin/activate"
+alias deact="deactivate"
+
+alias fd="fdfind"
 
 source $ZSH/oh-my-zsh.sh
 PS1='$(shrink_path -t)$ '

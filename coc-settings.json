@@ -1,9 +1,12 @@
 {
-  "python.jediEnabled": true,
   "suggest.noselect": false,
   "python.formatting.provider": "black",
+  "coc.preferences.formatOnType": false,
+  "vetur.validation.template": false,
+  "vetur.format.defaultFormatter.js": "prettier-eslint",
+  "vetur.format.defaultFormatter.html": "none",
   "eslint.autoFixOnSave": true,
-  "eslint.quiet": true,
+  "prettier.eslintIntegration": true,
   "eslint.filetypes": [
     "javascript",
     "javascriptreact",
@@ -12,9 +15,16 @@
     "typescriptreact",
     "vue"
   ],
-  "coc.preferences.formatOnType": false,
   "coc.preferences.formatOnSaveFiletypes": [
-    "*"
+    "javascript",
+    "typescript",
+    "python",
+    "css",
+    "json",
+    "yaml",
+    "xml",
+    "vue",
+    "html"
   ],
-  "suggest.maxCompleteItemCount": 15
+  "suggest.maxCompleteItemCount": 20
 }

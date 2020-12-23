@@ -47,7 +47,6 @@ nnoremap <silent> <Leader>s :nohlsearch<CR>
 
 " GUI
 set noshowmode
-syntax on
 set splitbelow
 set splitright
 set encoding=UTF-8
@@ -72,7 +71,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
 " GUI
-Plug 't9md/vim-choosewin' " invoke with '-'
 Plug 'perfectspr/dracula-vim', { 'as': 'dracula' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -91,23 +89,16 @@ Plug 'honza/vim-snippets'
 
 " Search
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" CTRL-X / CTRL-V key bindings to open in new split, or in a new vertical split
 Plug 'junegunn/fzf.vim' 
 
 " Filetype
 Plug 'sheerun/vim-polyglot'
-Plug 'kkoomen/vim-doge', { 'do': { -> doge#install()  }  }
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }
-Plug 'aserebryakov/vim-todo-lists'
 
 " Testing
 Plug 'janko/vim-test'
 
-" Debuging
-Plug 'puremourning/vimspector'
-
-" Running
-Plug 'thinca/vim-quickrun'
+" Document generator
+Plug 'kkoomen/vim-doge', {'do': { -> doge#install({ 'headless': 1 }) }}
 
 call plug#end()
 
@@ -127,15 +118,6 @@ let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap <silent>gx <Plug>(openbrowser-smart-search)
 vmap <silent>gx <Plug>(openbrowser-smart-search)
 
-" Choosewin Settings
-nmap  -  <Plug>(choosewin)
-let g:choosewin_overlay_enable = 1
-
-"=================================
-" Vim Javascript Settings
-let g:javascript_plugin_jsdoc = 1
-let g:javascript_plugin_ngdoc = 1
-
 "=================================
 " Vim Test Settings
 let test#python#runner = 'pytest'
@@ -152,9 +134,11 @@ nmap <silent> tg :TestVisit<CR>
 let $FZF_DEFAULT_COMMAND = "fdfind --type f -H -E .git"
 let g:fzf_layout = { 'down': '~20%' }
 nmap <C-p> :FZF<CR>
+nmap <C-m> :Rg<Space>
 
 "================================
 " coc Settings
+let g:coc_global_extensions = ['coc-snippets','coc-prettier','coc-eslint','coc-lists','coc-css','coc-json','coc-pyright','coc-tsserver','coc-sh','coc-tabnine','coc-vetur','coc-xml','coc-yaml','coc-html']
 set cmdheight=2
 set updatetime=300
 set shortmess+=c
@@ -164,8 +148,6 @@ highlight clear SignColumn
 " Use `[c` and `]c` to navigate diagnostics
 nmap <silent> <C-k> <Plug>(coc-diagnostic-prev)
 nmap <silent> <C-j> <Plug>(coc-diagnostic-next)
-
-let g:coc_global_extensions = ['coc-lists', 'coc-css', 'coc-eslint', 'coc-json', 'coc-pyright', 'coc-snippets', 'coc-sh', 'coc-tabnine', 'coc-tsserver', 'coc-vetur', 'coc-xml', 'coc-yaml', 'coc-html']
 
 " Refactor
 nmap <Leader>rn <Plug>(coc-rename)
@@ -229,49 +211,10 @@ nmap <silent> fl :<C-u>CocListResume<CR>
 " fugitive Settings
 nmap <silent> gs :<C-u>Gstatus<cr>
 
-"================================
-" JsDoc Settings
-let g:jsdoc_enable_es6 = 1
-let g:jsdoc_allow_input_prompt = 1
-nmap <silent> <C-l> <Plug>(jsdoc)
-
-"================================
-" Coc-git Settings
-nmap <silent> gN <Plug>(coc-git-prevchunk)
-nmap <silent> gn <Plug>(coc-git-nextchunk)
-nmap <silent> gi <Plug>(coc-git-chunkinfo)
-
-"================================
-" Vimspector
-let g:vimspector_enable_mappings = 'HUMAN'
-let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-node-debug2', '' ]
-" create .vimspector.json 
-" F5	When debugging, continue. Otherwise start debugging.	vimspector#Continue()
-" F3	Stop debugging.	vimspector#Stop()
-" F4	Restart debugging with the same configuration.	vimspector#Restart()
-" F6	Pause debugee.	vimspector#Pause()
-" F9	Toggle line breakpoint on the current line.	vimspector#ToggleBreakpoint()
-" <leader>F9	Toggle conditional line breakpoint on the current line.	vimspector#ToggleBreakpoint( { trigger expr, hit count expr } )
-" F8	Add a function breakpoint for the expression under cursor	vimspector#AddFunctionBreakpoint( '<cexpr>' )
-" F10	Step Over	vimspector#StepOver()
-" F11	Step Into	vimspector#StepInto()
-" F12	Step out of current function scope	vimspector#StepOut()
-
-"================================
-" Markdown Preview Settings
-nmap <Leader>mp :MarkdownPreview<cr>
-
-au BufNewFile,BufRead *.vm,*.vtl set ft=velocity
-syntax on
-colorscheme dracula
-
-"================================
-" totolist
-let g:VimTodoListsDatesEnabled = 1
-let g:VimTodoListsUndoneItem = ''
-let g:VimTodoListsDoneItem = ''
-
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --glob "!.git" --hidden --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
   \   fzf#vim#with_preview(), <bang>0)
+
+syntax on
+colorscheme dracula
