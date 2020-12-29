@@ -35,6 +35,7 @@ sudo apt-get update && sudo apt-get install -y --no-install-recommends \
     ssh \
     unzip \
     bzip2 \
+    taskwarrior \
     && sudo apt-get autoremove -y \
     && sudo apt-get clean -y \
     && sudo rm -rf /var/lib/apt/lists/*
@@ -71,6 +72,6 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 rm $HOME/.zshrc
 ln -s $PWD/.tmux.conf $HOME/.tmux.conf
-ln -s $PWD/.vimrc" $HOME/.vimrc
-ln -s $PWD/.zshrc" $HOME/.zshrc
-ln -s $PWD/coc-settings.json" $HOME/.vim/coc-settings.json
+ln -s $PWD/.vimrc $HOME/.vimrc
+ln -s $PWD/.zshrc $HOME/.zshrc
+ln -s $PWD/coc-settings.json $HOME/.vim/coc-settings.json

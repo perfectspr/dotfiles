@@ -25,6 +25,7 @@ alias venv="python -m venv .venv"
 alias act=". .venv/bin/activate"
 alias deact="deactivate"
 
+alias t="task"
 alias fd="fdfind"
 
 source $ZSH/oh-my-zsh.sh
