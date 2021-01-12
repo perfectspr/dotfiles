@@ -138,8 +138,8 @@ nmap <C-m> :Rg<Space>
 
 "================================
 " coc Settings
-let g:coc_global_extensions = ['coc-snippets','coc-prettier','coc-eslint','coc-lists','coc-css','coc-json','coc-pyright','coc-tsserver','coc-sh','coc-tabnine','coc-vetur','coc-xml','coc-yaml','coc-html']
-set cmdheight=2
+let g:coc_global_extensions = ['coc-snippets','coc-prettier','coc-eslint','coc-lists','coc-css','coc-json','coc-pyright','coc-tsserver','coc-sh','coc-vetur','coc-xml','coc-yaml','coc-html']
+set cmdheight=1
 set updatetime=300
 set shortmess+=c
 set signcolumn=yes "always keep the signcolumn open

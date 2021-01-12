@@ -6,6 +6,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export EDITOR=vim
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+export PATH=$HOME/.local/bin:$PATH
 
 ZSH_THEME="robbyrussell"
 
